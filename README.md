@@ -28,11 +28,13 @@ n2.next = n3  # 99 -> 37
 
 Seen graphically, we'd end up with something like the following image:
 
-![linkedlist](https://cloud.githubusercontent.com/assets/872296/23283799/c779c290-fa06-11e6-854b-62cbf00bce4f.png)
+![linked_list](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/816px-Singly-linked-list.svg.png)
 
 ### The structure of a LinkedList
 
 A LinkedList will just be an extremely simple object that will rely in Nodes to provide its behavior. A list is just an object that has two values: `start` and `end`. `start` points to the first Node in the list, and `end` points to the last Node in the list. **We don't keep references of the nodes in between.**.
+
+![linkedlist](https://cloud.githubusercontent.com/assets/872296/23283799/c779c290-fa06-11e6-854b-62cbf00bce4f.png)
 
 Following our previous example, our list would look something like:
 
