@@ -1,13 +1,51 @@
 # [pyp-w2] Linked list
 
-A `LinkedList` (https://en.wikipedia.org/wiki/Linked_list) is a linear data structure.
-You can think of it as a re implementation of a regular Python List.
+Today's project consist of building a LinkedList. You can think of it as a re implementation of a regular Python List.
 
-It's constructed using different Nodes. Each node has a value and a reference to the next Node in the list, as shown in the following diagram:
+A `LinkedList` (https://en.wikipedia.org/wiki/Linked_list) is a linear data structure and is constructed as a "chain" of Nodes. We'll see in detail how Nodes work because they're the objects holding the LinkedList structure.
 
-![linked_list](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/816px-Singly-linked-list.svg.png)
+### Nodes
 
-Values in the list are heterogeneous, meaning that one single `LinkedList` might contain values of many different types (ie: int, string, bools, other objects, etc).
+Node are simple Python objects that have two values:
+
+* An element (any python object): `1`, `hello`, `[1, 2, 3]`
+* And a reference to another Node (that can be None, if the node is not connected to any other Node)
+
+They can be created in the following way:
+
+```python
+n1 = Node(12)  # next is None
+n2 = Node(99)  # next is None
+n3 = Node(37)  # next is None
+```
+
+We can create a "chain" of nodes by connecting each one of these nodes to their respective "next" nodes:
+
+```python
+n1.next = n2  # 12 -> 99
+n2.next = n3  # 99 -> 37
+```
+
+Seen graphically, we'd end up with something like the following image:
+
+![linkedlist](https://cloud.githubusercontent.com/assets/872296/23283799/c779c290-fa06-11e6-854b-62cbf00bce4f.png)
+
+### The structure of a LinkedList
+
+A LinkedList will just be an extremely simple object that will rely in Nodes to provide its behavior. A list is just an object that has two values: `start` and `end`. `start` points to the first Node in the list, and `end` points to the last Node in the list. **We don't keep references of the nodes in between.**.
+
+Following our previous example, our list would look something like:
+
+```python
+# n1 -> n2 -> n3
+# 12 -> 99 -> 37
+my_list = LinkedList(start=n1, end=n3)  # WARNING! Not the actual interface.
+                                        # Just for clarity purposes
+```
+
+This is all that we need to provide all the behavior of a regular list. If you don't believe me check Hint 1 ;)
+
+### Important considerations for lists
 
 As a regular Python `list`, it must be an ordered collection. Meaning that new Nodes in the list must be appended and iterated respecting certain order.
 
